@@ -1,7 +1,5 @@
 <?php
-
-
-namespace MainBundle\Middlewares;
+namespace Src\Middlewares;
 
 use Monolog\Logger;
 use Slim\Container;
