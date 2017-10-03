@@ -4,6 +4,7 @@ namespace Src\Controllers;
 use GuzzleHttp\Client;
 use Slim\Http\Request;
 use Slim\Http\Response;
+use function var_dump;
 
 class PollutionController {
 
@@ -18,8 +19,16 @@ class PollutionController {
             'GET',
             "http://api.waqi.info/feed/{$args['city']}/?token=61d3602af69176305a80cefdc676225612d38d6a"
         );
+        $iaqi = json_decode($request->getBody()->getContents(),true)['data']['iaqi'];
+        $data = [];
+        foreach ($iaqi as $key => $val){
+            $data[$key] = $val['v'];
+        }
+
+
+
         // Render index view
-        return $response->write($request->getBody()->getContents());
+        return $response->withJson($data);
 
     }
 
