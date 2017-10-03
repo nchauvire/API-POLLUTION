@@ -15,6 +15,6 @@ $app->get('/', function (Request $request, Response $response, array $args) {
 });
 
 
-$app->get('/pollutions[/:city]', Src\Controllers\PollutionController::class.":getData");
+$app->get('/pollutions[/{city}', Src\Controllers\PollutionController::class.":getData");
 
 
